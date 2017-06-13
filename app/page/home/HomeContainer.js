@@ -1,13 +1,14 @@
 import {connect} from 'react-redux';
 import Home from './Home';
+import {loadData} from './HomeAction';
 
-const mapStateToProps = (state, ownProps) => {
-    return {...state, ...ownProps};
+const mapStateToProps = (state) => {
+    return state.home;
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: () => dispatch()
+        onClick: (data) => dispatch(loadData(data))
     }
 };
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text, Button, ScrollView} from 'react-native';
 
 class Home extends Component {
     
@@ -9,16 +9,18 @@ class Home extends Component {
     
     handlePress = () => {
         console.log('clicked');
-        alert('clicked');
-        
+        this.props.onClick(this.props.text + 'test test');
+        console.log(this.props);
     };
     
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.bigblue}>test</Text>
-                <Button onPress={this.handlePress} title={'click me'}>Click Me</Button>
-            </View>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text style={styles.bigblue}>{this.props.text}</Text>
+                    <Button onPress={this.handlePress} title={'click me'}>Click Me</Button>
+                </View>
+            </ScrollView>
         )
     }
 }
@@ -36,5 +38,9 @@ const styles = StyleSheet.create({
         color: 'red',
     },
 });
+
+Home.defaultProps = {
+    text: 'huhu',
+};
 
 export default Home;

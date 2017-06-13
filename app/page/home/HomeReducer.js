@@ -1,12 +1,14 @@
 import {LOAD_DATA} from './HomeAction';
 
-function homeReducer(state = {}, action) {
+function home(state = {}, action) {
     switch (action.type) {
         case LOAD_DATA:
-            return action.text;
+            return {...state, ...action};
         default:
-            return state
+            return state;
     }
 }
 
-export default homeReducer;
+export {
+    home
+};

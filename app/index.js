@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import app from './reducers';
+import reducers from './reducers';
 import HomeContainer from './page/home/HomeContainer';
 
 class ReactApp extends Component {
@@ -11,9 +11,8 @@ class ReactApp extends Component {
     }
     
     render() {
-        let store = createStore(app);
         return (
-            <Provider store={store}>
+            <Provider store={createStore(reducers)}>
                 <HomeContainer/>
             </Provider>
         )
